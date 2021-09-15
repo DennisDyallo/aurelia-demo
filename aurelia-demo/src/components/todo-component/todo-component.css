@@ -1,0 +1,8 @@
+li.done {
+  text-decoration: line-through;
+}
+
+.input {
+  display: flex;
+  gap: 4px;
+}
