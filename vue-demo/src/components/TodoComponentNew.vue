@@ -22,7 +22,7 @@ export default defineComponent({
 
     function addTodo() {
       if (inputValue.value) {
-        todos.value.push({ text: inputValue.value, done: false });
+        todos.value.unshift({ text: inputValue.value, done: false });
         inputValue.value = "";
       }
       return true;
