@@ -1,9 +1,9 @@
 <template>
   <div>
-    <label for="todo-input">Todo: </label>
-    <input id="todo-input" type="text" v-model="inputValue" @keyup.enter="addTodo" />
+    <label>Todo: </label>
+    <input type="text" v-model="inputValue" @keyup.enter="addTodo" />
 
-    <div v-for="todo of todos" :key="todo.text" :class="{ done: todo.done }" class="todo-item">
+    <div class="todo-item" v-for="todo of todos" :key="todo.text" :class="{ done: todo.done }">
       {{ todo.text }}
       <button v-if="!todo.done" @click="markDone(todo)">✔️</button>
     </div>
@@ -41,21 +41,14 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.done {
-  text-decoration: line-through;
-}
-.todo-input {
-  display: flex;
-  gap: 4px;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-}
 input {
   border: 1px solid black;
   border-radius: 4px;
   flex: 1;
   padding: 6px;
+}
+.done {
+  text-decoration: line-through;
 }
 .todo-item {
   border: 1px solid black;

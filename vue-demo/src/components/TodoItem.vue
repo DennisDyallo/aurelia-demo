@@ -37,14 +37,15 @@ export default defineComponent({
   justify-content: space-between;
   align-items: center;
 }
-
 .todo-item.done {
   text-decoration: line-through;
   background: rgb(240, 240, 240);
 }
-
 button {
   background: inherit;
   border: none;
+}
+.done {
+  text-decoration: line-through;
 }
 </style>

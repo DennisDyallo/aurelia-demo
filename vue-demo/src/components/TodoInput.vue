@@ -1,8 +1,7 @@
 <template>
   <div class="todo-input">
-    <label for="input">{{ label }}</label>
+    <label>{{ label }}</label>
     <input
-      id="input"
       type="text"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"

@@ -21,11 +21,10 @@ export default defineComponent({
     const todos = ref<TodoItemModel[]>([]);
 
     function addTodo() {
-      if (inputValue.value) {
-        todos.value.unshift({ text: inputValue.value, done: false });
-        inputValue.value = "";
-      }
-      return true;
+      if (!inputValue.value) return;
+      
+      todos.value.unshift({ text: inputValue.value, done: false });
+      inputValue.value = "";
     }
 
     return {
@@ -36,9 +35,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-.done {
-  text-decoration: line-through;
-}
-</style>
