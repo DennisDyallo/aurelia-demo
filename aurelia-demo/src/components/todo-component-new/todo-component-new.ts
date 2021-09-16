@@ -1,11 +1,11 @@
 import { TodoItemModel } from "../../models/TodoItemModel";
 
 export class TodoComponentNew {
-  inputValue: string;
+  inputValue: string = "";
   todos: TodoItemModel[] = [];
 
   addTodo(event?: KeyboardEvent) {
-    if (event && event.key === "Enter") {
+    if (this.inputValue && event && event.key === "Enter") {
       this.todos.unshift({ text: this.inputValue, done: false });
       this.inputValue = "";
     }

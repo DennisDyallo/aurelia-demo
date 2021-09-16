@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  border: 1px solid black;
+  border-radius: 4px;
+  flex: 1;
+  padding: 6px;
+}
+
+button {
+  background: inherit;
+  border: none;
+}

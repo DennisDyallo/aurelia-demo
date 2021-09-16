@@ -1,4 +1,4 @@
-<template done.class="todo.done">
+<template done.class="item.done">
   ${item.text}
-  <button if.bind="!todo.done" click.trigger="markDone()">✔️</button>
+  <button if.bind="!item.done" click.trigger="markDone()">✔️</button>
 </template>

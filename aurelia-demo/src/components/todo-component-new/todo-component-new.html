@@ -1,5 +1,5 @@
 <todo-input
   value.two-way="inputValue"
-  keypress.trigger="addTodo($event)"
+  keyup.trigger="addTodo($event)"
 ></todo-input>
-<todo-item repeat.for="todo of todos" item.bind="todo"></todo-item>
+<todo-item repeat.for="todo of todos" item.two-way="todo"></todo-item>

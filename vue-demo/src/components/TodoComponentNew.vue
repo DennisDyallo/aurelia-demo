@@ -1,10 +1,7 @@
 <template>
   <div>
-    <label for="todo-input">Todo:</label>
-    <input id="todo-input" type="text" />
-    <button @click="addTodo()">Add</button>
-    <TodoInput v-model="inputValue" @keypress="addTodo($event)" />
-    <TodoItem v-for="(todo, index) in todos" :key="index" :todo="todo" />
+    <TodoInput v-model="inputValue" @keyup.enter="addTodo()" />
+    <TodoItem v-for="(todo, index) in todos" :key="index" :item="todo" />
   </div>
 </template>
 
@@ -23,23 +20,18 @@ export default defineComponent({
     const inputValue = ref("");
     const todos = ref<TodoItemModel[]>([]);
 
-    function addTodo(event?: KeyboardEvent) {
-      if (event && event.key === "Enter") {
+    function addTodo() {
+      if (inputValue.value) {
         todos.value.push({ text: inputValue.value, done: false });
         inputValue.value = "";
       }
       return true;
     }
 
-    function markDone(item: TodoItemModel) {
-      item.done = true;
-    }
-
     return {
       inputValue,
       todos,
       addTodo,
-      markDone,
     };
   },
 });

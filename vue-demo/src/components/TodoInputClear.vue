@@ -5,8 +5,9 @@
       id="input"
       type="text"
       :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
+      @input="valueChanged($event.target.value)"
     />
+    <button @click="clearValue()">❌</button>
   </div>
 </template>
 
@@ -17,6 +18,21 @@ export default defineComponent({
   props: {
     modelValue: String,
     label: { type: String, default: "Todo: " },
+  },
+  emits: ["update:modelValue"],
+  setup(_, { emit }) {
+    function valueChanged(newValue: string) {
+      emit("update:modelValue", newValue);
+    }
+
+    function clearValue() {
+      emit("update:modelValue", "");
+    }
+
+    return {
+      valueChanged,
+      clearValue,
+    };
   },
 });
 </script>
@@ -35,5 +51,10 @@ input {
   border-radius: 4px;
   flex: 1;
   padding: 6px;
+}
+
+button {
+  background: inherit;
+  border: none;
 }
 </style>
