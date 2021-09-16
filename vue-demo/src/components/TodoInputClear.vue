@@ -1,13 +1,12 @@
 <template>
   <div class="todo-input">
-    <label for="input">{{ label }}</label>
+    <label>{{ label }}</label>
     <input
-      id="input"
       type="text"
       :value="modelValue"
       @input="valueChanged($event.target.value)"
     />
-    <button @click="clearValue()">❌</button>
+    <button @click="clear">❌</button>
   </div>
 </template>
 
@@ -25,13 +24,13 @@ export default defineComponent({
       emit("update:modelValue", newValue);
     }
 
-    function clearValue() {
+    function clear() {
       emit("update:modelValue", "");
     }
 
     return {
       valueChanged,
-      clearValue,
+      clear,
     };
   },
 });
@@ -45,14 +44,12 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
 }
-
 input {
   border: 1px solid black;
   border-radius: 4px;
   flex: 1;
   padding: 6px;
 }
-
 button {
   background: inherit;
   border: none;

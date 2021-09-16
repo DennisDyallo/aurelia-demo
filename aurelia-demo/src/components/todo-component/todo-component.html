@@ -1,12 +1,8 @@
-<div class="input">
-  <label for="todo-input">Todo:</label>
-  <input id="todo-input" type="text" value.bind="inputValue" />
-  <button click.trigger="addTodo()">Add</button>
-</div>
+<label>Todo: </label>
+<input type="text" value.bind="inputValue" />
+<button click.trigger="addTodo()">Add</button>
 
-<ul>
-  <li repeat.for="todo of todos" done.class="todo.done">
-    ${todo.text}
-    <button if.bind="!todo.done" click.trigger="markDone(todo)">✔️</button>
-  </li>
-</ul>
+<div class="todo-item" repeat.for="todo of todos" done.class="todo.done">
+  ${todo.text}
+  <button if.bind="!todo.done" click.trigger="markDone(todo)">✔️</button>
+</div>

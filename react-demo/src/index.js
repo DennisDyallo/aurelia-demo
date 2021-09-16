@@ -22,7 +22,7 @@ function TodoList() {
 
   return (
     <div>
-      <label htmlFor="todo-input">Todo:</label>
+      <label htmlFor="todo-input">Todo: </label>
       <input
         id="todo-input"
         type="text"
@@ -31,14 +31,12 @@ function TodoList() {
       />
       <button onClick={addTodo}>Add</button>
 
-      <ul>
-        {todos.map((todo, index) => (
-          <li key={index} className={todo.done ? "done" : ""}>
-            {todo.title}
-            {!todo.done && <button onClick={() => markDone(index)}>✔️</button>}
-          </li>
-        ))}
-      </ul>
+      {todos.map((todo, index) => (
+        <div key={index} className={todo.done ? "done" : ""}>
+          {todo.title}
+          {!todo.done && <button onClick={() => markDone(index)}>✔️</button>}
+        </div>
+      ))}
     </div>
   );
 }

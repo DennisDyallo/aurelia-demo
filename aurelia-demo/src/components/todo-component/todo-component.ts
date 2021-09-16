@@ -5,6 +5,8 @@ export class TodoComponent {
   todos: TodoItemModel[] = [];
 
   addTodo() {
+    if (!this.inputValue) return;
+
     this.todos.unshift({ text: this.inputValue, done: false });
     this.inputValue = "";
   }

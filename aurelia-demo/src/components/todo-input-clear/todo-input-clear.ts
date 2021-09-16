@@ -4,7 +4,7 @@ export class TodoInputClear {
   @bindable value: string;
   @bindable label: string = "Todo: ";
 
-  clearValue() {
+  clear() {
     this.value = "";
   }
 }

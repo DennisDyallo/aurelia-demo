@@ -1,15 +1,13 @@
 <template>
   <div>
-    <label for="todo-input">Todo:</label>
-    <input id="todo-input" type="text" v-model="inputValue" />
-    <button @click="addTodo()">Add</button>
+    <label>Todo: </label>
+    <input type="text" v-model="inputValue" />
+    <button @click="addTodo">Add</button>
 
-    <ul>
-      <li v-for="todo of todos" :key="todo.text" :class="{ done: todo.done }">
-        {{ todo.text }}
-        <button v-if="!todo.done" @click="markDone(todo)">✔️</button>
-      </li>
-    </ul>
+    <div class="todo-item" v-for="todo of todos" :key="todo.text" :class="{ done: todo.done }">
+      {{ todo.text }}
+      <button v-if="!todo.done" @click="markDone(todo)">✔️</button>
+    </div>
   </div>
 </template>
 
@@ -25,7 +23,7 @@ export default defineComponent({
     function addTodo() {
       if (!inputValue.value) return;
 
-      todos.value.push({ text: inputValue.value, done: false });
+      todos.value.unshift({ text: inputValue.value, done: false });
       inputValue.value = "";
     }
 
