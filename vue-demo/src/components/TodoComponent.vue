@@ -1,15 +1,12 @@
 <template>
   <div>
-    <label for="todo-input">Todo:</label>
-    <input id="todo-input" type="text" v-model="inputValue" />
-    <button @click="addTodo()">Add</button>
+    <label for="todo-input">Todo: </label>
+    <input id="todo-input" type="text" v-model="inputValue" @keyup.enter="addTodo" />
 
-    <ul>
-      <li v-for="todo of todos" :key="todo.text" :class="{ done: todo.done }">
-        {{ todo.text }}
-        <button v-if="!todo.done" @click="markDone(todo)">✔️</button>
-      </li>
-    </ul>
+    <div v-for="todo of todos" :key="todo.text" :class="{ done: todo.done }" class="todo-item">
+      {{ todo.text }}
+      <button v-if="!todo.done" @click="markDone(todo)">✔️</button>
+    </div>
   </div>
 </template>
 
@@ -25,7 +22,7 @@ export default defineComponent({
     function addTodo() {
       if (!inputValue.value) return;
 
-      todos.value.push({ text: inputValue.value, done: false });
+      todos.value.unshift({ text: inputValue.value, done: false });
       inputValue.value = "";
     }
 
@@ -46,5 +43,36 @@ export default defineComponent({
 <style scoped>
 .done {
   text-decoration: line-through;
+}
+.todo-input {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+input {
+  border: 1px solid black;
+  border-radius: 4px;
+  flex: 1;
+  padding: 6px;
+}
+.todo-item {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 2px;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.todo-item.done {
+  text-decoration: line-through;
+  background: rgb(240, 240, 240);
+}
+button {
+  background: inherit;
+  border: none;
 }
 </style>
