@@ -4,13 +4,11 @@ export class TodoComponent {
   inputValue: string;
   todos: TodoItemModel[] = [];
 
-  addTodo(event?: KeyboardEvent) {
-    if (this.inputValue && event && event.key === "Enter") {
-      this.todos.unshift({ text: this.inputValue, done: false });
-      this.inputValue = "";
-    }
+  addTodo() {
+    if (!this.inputValue) return;
 
-    return true;
+    this.todos.unshift({ text: this.inputValue, done: false });
+    this.inputValue = "";
   }
 
   markDone(item: TodoItemModel) {
