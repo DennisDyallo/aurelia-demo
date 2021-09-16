@@ -13,7 +13,7 @@ export default defineComponent({
   props: {
     item: Object as () => TodoItemModel,
   },
-  setup(props) {
+  setup() {
     function markDone(item: TodoItemModel) {
       // props.item.done = true;
       item.done = true;

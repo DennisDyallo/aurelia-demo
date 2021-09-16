@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="components">
     <TodoComponent />
     <TodoComponentNew />
   </div>
@@ -34,7 +34,12 @@ body {
 #app {
   flex: 1;
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
+}
+.components {
+  display: flex;
   align-items: center;
 }
 </style>

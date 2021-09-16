@@ -1,6 +1,6 @@
 <template>
   <div class="todo-input">
-    <label>{{ label }}</label>
+    <label v-if="label">{{ label }}</label>
     <input
       type="text"
       :value="modelValue"
