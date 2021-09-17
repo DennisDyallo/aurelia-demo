@@ -1,0 +1,25 @@
+Demo 1
+Visa react 
+  JS och HTML blandas
+  egna attribut för att inte kricka med html standard
+  Vi såg det som störst steg att lära sig. mest ramverk
+
+Vue
+  Till skillnad från react, uppdelat i template och komponent.
+  Manuellt ange ref(), reactive(), computed()
+  hämta dess värden med .value, men inte i template.
+  Returnera det som ska finnas i template.
+
+Aurelia
+  JS standard med klasser.
+  Allt som finns i klassen finns i template
+  Följer standard attribut med tillägg som .bind .triggger
+
+
+Demo 2
+Prata om tvåvägs binding med v-model i input-clear. 
+  Hur det funkar med emit direkt och i vilka lägen man behöver spara ett lokalt state,
+  blir lätt komplext att hålla uppdaterat med parents input.
+
+Ändra props i todo-item, lura ramverket.
+  Exemplet kanske inte best practice men...
