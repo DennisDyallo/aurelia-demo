@@ -4,7 +4,12 @@
     <input type="text" v-model="inputValue" />
     <button @click="addTodo">Add</button>
 
-    <div class="todo-item" v-for="todo of todos" :key="todo.text" :class="{ done: todo.done }">
+    <div
+      v-for="todo of todos"
+      :key="todo.text"
+      class="todo-item"
+      :class="{ done: todo.done }"
+    >
       {{ todo.text }}
       <button v-if="!todo.done" @click="markDone(todo)">✔️</button>
     </div>
