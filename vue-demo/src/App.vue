@@ -8,13 +8,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import TodoComponent from "./components/TodoComponent.vue";
-// import TodoComponentNew from "./components/TodoComponentNew.vue";
 
 export default defineComponent({
   name: "App",
   components: {
-    TodoComponent,
-    // TodoComponentNew,
+    TodoComponent
   },
 });
 </script>
